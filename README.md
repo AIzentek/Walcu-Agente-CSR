@@ -154,7 +154,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 ---
 
 <div align="center">
-  <strong>🚀 Dashboard Agente CSR</strong><br>
+  <strong>🚀 Dashboard Agente CSR - Walcu by AiZentek</strong><br>
   <em>Sistema de Evaluación de Performance para Customer Service Representatives</em><br><br>
   <a href="#">⭐ Dale una estrella si te gustó este proyecto ⭐</a>
 </div>

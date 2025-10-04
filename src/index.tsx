@@ -219,7 +219,7 @@ app.get('/', (c) => {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard CSR - Learning Heroes</title>
+        <title>Dashboard CSR - Walcu by AiZentek</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -285,7 +285,7 @@ app.get('/', (c) => {
                 <div class="flex items-center justify-between">
                     <div>
                         <h1 class="text-2xl font-bold text-slate-900">Dashboard de Performance CSR</h1>
-                        <p class="text-sm text-slate-500 mt-1">Learning Heroes - Sistema de Evaluación de Simulaciones</p>
+                        <p class="text-sm text-slate-500 mt-1">Walcu - Sistema de Evaluación de Simulaciones by AiZentek</p>
                     </div>
                     <div class="flex items-center gap-3">
                         <select id="dateRange" class="px-4 py-2 border border-slate-300 rounded-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
