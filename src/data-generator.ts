@@ -78,7 +78,7 @@ export const generateData = (): DashboardData => {
         
         criteriaResults[criterion] = {
           result: isUnknown ? 'unknown' : (isSuccess ? 'success' : 'failure'),
-          score_normalized: isUnknown ? 0 : (isSuccess ? (3.5 + Math.random() * 1.5) : (1.5 + Math.random() * 1.5))
+          score_normalized: isUnknown ? 0 : (isSuccess ? (7 + Math.random() * 3) : (3 + Math.random() * 3))
         };
       });
       

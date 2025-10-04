@@ -208,7 +208,7 @@ class CSRDashboard {
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm text-slate-500 font-medium">Score Promedio</p>
-                        <p class="text-3xl font-bold text-slate-900 mt-1">${metrics.avgScore}/5</p>
+                        <p class="text-3xl font-bold text-slate-900 mt-1">${metrics.avgScore}/10</p>
                         <div class="flex items-center gap-1 mt-2">
                             <i class="fas fa-trending-up text-blue-500"></i>
                             <span class="text-sm text-blue-600 font-medium">+0.4 vs mes anterior</span>
@@ -240,7 +240,7 @@ class CSRDashboard {
                         <p class="text-sm text-slate-500 font-medium">Top CSR del Mes</p>
                         <p class="text-xl font-bold text-slate-900 mt-1">${metrics.topCSR.name}</p>
                         <div class="flex items-center gap-1 mt-2">
-                            <span class="text-sm text-amber-600 font-medium">${metrics.topCSR.avg?.toFixed(1)}/5 promedio</span>
+                            <span class="text-sm text-amber-600 font-medium">${metrics.topCSR.avg?.toFixed(1)}/10 promedio</span>
                         </div>
                     </div>
                     <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-2xl">
@@ -289,7 +289,7 @@ class CSRDashboard {
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 5,
+                        max: 10,
                         ticks: {
                             color: '#64748b'
                         },
@@ -384,7 +384,7 @@ class CSRDashboard {
         if (!container) return;
 
         container.innerHTML = data.map((csr, idx) => {
-            const percentage = (csr.avgScore / 5) * 100;
+            const percentage = (csr.avgScore / 10) * 100;
             let badges = '';
             if (idx === 0) badges = '⭐⭐⭐';
             else if (idx === 1) badges = '⭐⭐';
@@ -403,7 +403,7 @@ class CSRDashboard {
                     </div>
                     <div class="text-right">
                         <div class="text-2xl font-bold text-slate-900">${csr.avgScore}</div>
-                        <div class="text-xs text-slate-500">de 5.0</div>
+                        <div class="text-xs text-slate-500">de 10.0</div>
                     </div>
                     <div class="w-64">
                         <div class="flex items-center gap-2">
@@ -514,7 +514,7 @@ class CSRDashboard {
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 5,
+                        max: 10,
                         ticks: {
                             color: '#64748b'
                         },
@@ -578,7 +578,7 @@ class CSRDashboard {
                 scales: {
                     r: {
                         beginAtZero: true,
-                        max: 5,
+                        max: 10,
                         ticks: {
                             color: '#64748b',
                             backdropColor: 'transparent'
@@ -616,8 +616,8 @@ class CSRDashboard {
             
             const duration = `${Math.floor(sim.duration_seconds / 60)}:${(sim.duration_seconds % 60).toString().padStart(2, '0')}`;
             
-            const scoreColor = sim.total_score >= 4 ? 'text-green-600' : 
-                              sim.total_score >= 3 ? 'text-amber-600' : 'text-red-600';
+            const scoreColor = sim.total_score >= 8 ? 'text-green-600' : 
+                              sim.total_score >= 6 ? 'text-amber-600' : 'text-red-600';
             
             const statusColor = sim.call_status === 'success' ? 
                 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700';
@@ -699,11 +699,11 @@ class CSRDashboard {
             <div class="metric-card">
                 <p class="text-sm text-slate-500 font-medium">Top Performer</p>
                 <p class="text-xl font-bold text-slate-900 mt-2">${metrics.topPerformer.name}</p>
-                <p class="text-sm text-slate-500">${metrics.topPerformer.score}/5</p>
+                <p class="text-sm text-slate-500">${metrics.topPerformer.score}/10</p>
             </div>
             <div class="metric-card">
                 <p class="text-sm text-slate-500 font-medium">Promedio CSRs</p>
-                <p class="text-3xl font-bold text-slate-900 mt-2">${metrics.teamAvg || 0}/5</p>
+                <p class="text-3xl font-bold text-slate-900 mt-2">${metrics.teamAvg || 0}/10</p>
             </div>
             <div class="metric-card">
                 <p class="text-sm text-slate-500 font-medium">Total Evaluaciones</p>
@@ -745,7 +745,7 @@ class CSRDashboard {
                 scales: {
                     x: {
                         beginAtZero: true,
-                        max: 5,
+                        max: 10,
                         ticks: {
                             color: '#64748b'
                         },
