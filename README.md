@@ -1,13 +1,28 @@
-# Dashboard CSR - Learning Heroes
+# 📊 Dashboard Agente CSR
 
-## Project Overview
-- **Name**: CSR Performance Dashboard
-- **Goal**: Sistema completo de evaluación y análisis de performance para CSRs (Customer Service Representatives)
-- **Features**: Dashboard interactivo con métricas en tiempo real, análisis individual, comparativas por criterio y visualizaciones avanzadas
+![Dashboard Preview](https://img.shields.io/badge/Status-Active-brightgreen)
+![Technology](https://img.shields.io/badge/Tech-Hono%20%2B%20Chart.js-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-## URLs
-- **Production**: https://3000-i4bwj69qxj2xa0pum6b2y-6532622b.e2b.dev
-- **API Health Check**: https://3000-i4bwj69qxj2xa0pum6b2y-6532622b.e2b.dev/api/metrics/global
+## 🎯 Dashboard Completo de Performance para Agentes CSR
+
+## 🚀 Descripción del Proyecto
+
+Dashboard interactivo para el análisis y evaluación de performance de Agentes de Customer Service (CSR). Sistema completo con visualizaciones avanzadas, métricas en tiempo real y análisis comparativo.
+
+### ✨ Características Principales
+- 📈 **Métricas en Tiempo Real**: KPIs actualizados con filtros temporales
+- 👤 **Análisis Individual**: Perfiles detallados por agente
+- 📊 **Comparativas por Criterio**: Rankings y evaluaciones específicas
+- 🎨 **Visualizaciones Interactivas**: Charts responsivos con Chart.js
+- 📱 **Diseño Responsive**: Optimizado para desktop y tablet
+- 🔄 **Datos Dinámicos**: 300+ simulaciones realistas
+
+## 🔗 Enlaces
+
+- **🌐 Demo en Vivo**: [Ver Dashboard](https://3000-i4bwj69qxj2xa0pum6b2y-6532622b.e2b.dev)
+- **🔍 API Health Check**: [Métricas Globales](https://3000-i4bwj69qxj2xa0pum6b2y-6532622b.e2b.dev/api/metrics/global)
+- **📁 Repositorio**: [GitHub](https://github.com/USERNAME/dashboard-agente-csr)
 
 ## Funcionalidades Completadas
 
@@ -124,6 +139,22 @@
 6. **Análisis Predictivo**: ML para predecir performance futura
 7. **Mobile App**: Versión nativa para dispositivos móviles
 
+## 🤝 Contribuir
+
+1. Fork el repositorio
+2. Crea tu feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la branch (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
 ---
 
-**Desarrollado con ❤️ para Learning Heroes - Sistema de Evaluación de Simulaciones CSR**
+<div align="center">
+  <strong>🚀 Dashboard Agente CSR</strong><br>
+  <em>Sistema de Evaluación de Performance para Customer Service Representatives</em><br><br>
+  <a href="#">⭐ Dale una estrella si te gustó este proyecto ⭐</a>
+</div>
