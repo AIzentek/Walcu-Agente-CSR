@@ -1,21 +1,129 @@
-```txt
-npm install
-npm run dev
-```
+# Dashboard CSR - Learning Heroes
 
-```txt
-npm run deploy
-```
+## Project Overview
+- **Name**: CSR Performance Dashboard
+- **Goal**: Sistema completo de evaluación y análisis de performance para CSRs (Customer Service Representatives)
+- **Features**: Dashboard interactivo con métricas en tiempo real, análisis individual, comparativas por criterio y visualizaciones avanzadas
 
-[For generating/synchronizing types based on your Worker configuration run](https://developers.cloudflare.com/workers/wrangler/commands/#types):
+## URLs
+- **Production**: https://3000-i4bwj69qxj2xa0pum6b2y-6532622b.e2b.dev
+- **API Health Check**: https://3000-i4bwj69qxj2xa0pum6b2y-6532622b.e2b.dev/api/metrics/global
 
-```txt
-npm run cf-typegen
-```
+## Funcionalidades Completadas
 
-Pass the `CloudflareBindings` as generics when instantiation `Hono`:
+### ✅ Vista Global
+- **KPIs Principales**: Tasa de éxito, score promedio, total simulaciones, top performer
+- **Evolución Temporal**: Gráfico de línea mostrando tendencias del equipo
+- **Distribución por Criterios**: Gráfico de barras horizontales con porcentajes de éxito/fallo
+- **Ranking de CSRs**: Lista ordenada con scores, progress bars y badges de reconocimiento
 
-```ts
-// src/index.ts
-const app = new Hono<{ Bindings: CloudflareBindings }>()
-```
+### ✅ Vista Individual
+- **Perfil del CSR**: Panel con información personal y métricas clave
+- **Selector de CSR**: Dropdown para cambiar entre diferentes CSRs
+- **Evolución Personal**: Gráfico de línea con últimas 20 simulaciones
+- **Radar de Competencias**: Comparativa de 5 criterios vs promedio del equipo
+- **Tabla de Simulaciones**: Últimas 10 simulaciones con detalles completos
+
+### ✅ Vista por Criterio  
+- **Selector de Criterios**: 5 criterios de evaluación disponibles
+- **KPIs del Criterio**: Tasa de éxito, top performer, promedio, total evaluaciones
+- **Ranking por Criterio**: Gráfico de barras horizontales con colores personalizados
+
+### ✅ Funcionalidades Adicionales
+- **Filtrado Temporal**: 7, 30, 60, 90 días
+- **Exportación de Datos**: JSON con configuración actual
+- **Responsive Design**: Optimizado para desktop y tablet
+- **Loading States**: Indicadores de carga para mejor UX
+
+## Entry URIs y Parámetros
+
+### Frontend
+- `GET /` - Dashboard principal con todas las vistas
+
+### API Endpoints
+- `GET /api/metrics/global?days={dateRange}` - Métricas globales del equipo
+- `GET /api/timeline?days={dateRange}` - Datos de evolución temporal
+- `GET /api/criteria/distribution?days={dateRange}` - Distribución por criterios
+- `GET /api/csrs/ranking?days={dateRange}` - Ranking de CSRs
+- `GET /api/csrs/{id}/data?days={dateRange}` - Datos individuales de CSR
+- `GET /api/criteria/{criterion}/ranking?days={dateRange}` - Ranking por criterio específico
+- `GET /api/csrs` - Lista completa de CSRs
+- `GET /api/criteria` - Lista de criterios con labels
+
+**Parámetros comunes:**
+- `days`: Rango de fechas (7, 30, 60, 90)
+- `id`: ID numérico del CSR
+- `criterion`: Clave del criterio (conocimiento_producto, confianza_seguridad, etc.)
+
+## Data Architecture
+
+### Modelos Principales
+- **CSR**: id, name, email, avatar, color
+- **Simulation**: simulation_id, csr_id, timestamp, score, criterios, status
+- **CriteriaResult**: result (success/failure/unknown), score_normalized
+
+### Criterios de Evaluación
+1. **Conocimiento del Producto** (conocimiento_producto)
+2. **Confianza y Seguridad** (confianza_seguridad)  
+3. **Manejo de Objeciones** (manejo_objeciones)
+4. **Persuasión** (persuasion)
+5. **Personalización** (personalizacion)
+
+### Generación de Datos
+- **300+ simulaciones** distribuidas entre 6 CSRs
+- **Variación de performance** realista por CSR
+- **Datos temporales** de últimos 90 días
+- **Puntuaciones** normalizadas de 0-5
+
+## User Guide
+
+### Navegación Principal
+1. **Vista Global** 🏠: Métricas generales del equipo y rankings
+2. **Individual** 👤: Análisis detallado por CSR seleccionado  
+3. **Por Criterio** 📈: Comparativa específica por criterio de evaluación
+
+### Filtros y Controles
+- **Rango Temporal**: Selector superior derecho (7-90 días)
+- **Selección CSR**: Dropdown en vista individual
+- **Criterios**: Dropdown en vista por criterio
+- **Exportar**: Botón para descargar datos en JSON
+
+### Interpretación de Gráficos
+- **Verde**: Resultados exitosos/buenos
+- **Rojo**: Resultados fallidos/mejorables
+- **Gris**: Datos desconocidos/no evaluados
+- **Badges**: ⭐⭐⭐ (Top 3), ⚠️ (Performance bajo)
+
+## Tech Stack
+- **Backend**: Hono + TypeScript + Cloudflare Workers
+- **Frontend**: JavaScript Vanilla + Chart.js + TailwindCSS + Font Awesome
+- **Visualizaciones**: Chart.js (Line, Bar, Radar charts)
+- **Styling**: TailwindCSS + Custom CSS
+- **Icons**: Font Awesome 6.4.0
+
+## Deployment
+- **Platform**: Cloudflare Pages Ready
+- **Status**: ✅ Active - Development Version
+- **Environment**: Sandbox Development
+- **Process Manager**: PM2 (ecosystem.config.cjs)
+- **Last Updated**: 2025-01-10
+
+## Características Técnicas
+- **Responsive Design**: Optimizado para resoluciones 1200px+
+- **Loading Performance**: Lazy loading de gráficos y datos
+- **Error Handling**: Manejo de errores en API y frontend
+- **Chart Cleanup**: Destrucción correcta de gráficos previos
+- **Memory Management**: Gestión eficiente de recursos Chart.js
+
+## Próximos Pasos Recomendados
+1. **Integración con Base de Datos Real**: Reemplazar generador de datos simulados
+2. **Autenticación de Usuarios**: Sistema de login para CSRs y supervisores
+3. **Notificaciones Push**: Alertas por performance bajo
+4. **Exportación Avanzada**: PDF reports y Excel
+5. **Filtros Avanzados**: Por supervisor, región, producto
+6. **Análisis Predictivo**: ML para predecir performance futura
+7. **Mobile App**: Versión nativa para dispositivos móviles
+
+---
+
+**Desarrollado con ❤️ para Learning Heroes - Sistema de Evaluación de Simulaciones CSR**
