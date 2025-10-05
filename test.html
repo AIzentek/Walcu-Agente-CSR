@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Walcu by AiZentek</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 50px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 { font-size: 3em; margin-bottom: 20px; }
+        p { font-size: 1.2em; margin-bottom: 30px; }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: #45a049; }
+        .status {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 ¡GitHub Pages Funcionando!</h1>
+        <p><strong>Walcu Dashboard by AiZentek</strong></p>
+        
+        <div class="status">
+            <h3>✅ Estado del Sitio</h3>
+            <p>Si puedes ver esta página, GitHub Pages está configurado correctamente.</p>
+            <p><strong>Fecha:</strong> <span id="fecha"></span></p>
+            <p><strong>Hora:</strong> <span id="hora"></span></p>
+        </div>
+        
+        <a href="./index.html" class="btn">🚀 Ver Dashboard Completo</a>
+        
+        <div style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+            <p>Repositorio: <a href="https://github.com/AIzentek/Walcu-Agente-CSR" style="color: #FFD700;">github.com/AIzentek/Walcu-Agente-CSR</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Mostrar fecha y hora actual
+        const ahora = new Date();
+        document.getElementById('fecha').textContent = ahora.toLocaleDateString('es-ES');
+        document.getElementById('hora').textContent = ahora.toLocaleTimeString('es-ES');
+        
+        // Verificar si el dashboard principal existe
+        fetch('./index.html')
+            .then(response => {
+                if (response.ok) {
+                    console.log('✅ Dashboard principal encontrado');
+                } else {
+                    console.log('❌ Dashboard principal no encontrado');
+                }
+            })
+            .catch(err => console.log('🔍 Verificando dashboard:', err));
+    </script>
+</body>
+</html>
