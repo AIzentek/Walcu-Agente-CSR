@@ -20,9 +20,9 @@ Dashboard interactivo para el análisis y evaluación de performance de Agentes 
 
 ## 🔗 Enlaces
 
-- **🌐 Demo en Vivo**: [Ver Dashboard](https://3000-i4bwj69qxj2xa0pum6b2y-6532622b.e2b.dev)
-- **🔍 API Health Check**: [Métricas Globales](https://3000-i4bwj69qxj2xa0pum6b2y-6532622b.e2b.dev/api/metrics/global)
-- **📁 Repositorio**: [GitHub](https://github.com/USERNAME/dashboard-agente-csr)
+- **🌐 Demo en Vivo**: [Ver Dashboard](https://aizentek.github.io/Walcu-Agente-CSR/)
+- **📁 Repositorio**: [GitHub](https://github.com/AIzentek/Walcu-Agente-CSR)
+- **⚡ Versión Backend**: Disponible en el repositorio para deployment con Hono + Cloudflare
 
 ## Funcionalidades Completadas
 
@@ -110,11 +110,13 @@ Dashboard interactivo para el análisis y evaluación de performance de Agentes 
 - **Badges**: ⭐⭐⭐ (Top 3), ⚠️ (Performance bajo)
 
 ## Tech Stack
-- **Backend**: Hono + TypeScript + Cloudflare Workers
+- **Demo Estático**: HTML + JavaScript Vanilla + Chart.js (GitHub Pages)
+- **Backend Completo**: Hono + TypeScript + Cloudflare Workers (disponible para deployment)
 - **Frontend**: JavaScript Vanilla + Chart.js + TailwindCSS + Font Awesome
 - **Visualizaciones**: Chart.js (Line, Bar, Radar charts)
 - **Styling**: TailwindCSS + Custom CSS
 - **Icons**: Font Awesome 6.4.0
+- **Deployment**: GitHub Pages + GitHub Actions
 
 ## Deployment
 - **Platform**: Cloudflare Pages Ready
