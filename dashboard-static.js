@@ -234,6 +234,69 @@ class CSRDashboardStatic {
             });
         }
     }
+    
+    attachCSRClickListeners() {
+        // Event listeners para clics en CSRs del ranking
+        document.querySelectorAll('.csr-ranking-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                const csrId = Number(e.currentTarget.getAttribute('data-csr-id'));
+                this.selectCSRAndShowIndividual(csrId);
+            });
+        });
+    }
+    
+    selectCSRAndShowIndividual(csrId) {
+        // Encontrar el CSR
+        const csr = this.data.csrs.find(c => c.id === csrId);
+        if (!csr) return;
+        
+        // Actualizar CSR seleccionado
+        this.selectedCSR = csr;
+        
+        // Actualizar el selector en la vista individual
+        const csrSelector = document.getElementById('csrSelector');
+        if (csrSelector) {
+            csrSelector.value = csrId;
+        }
+        
+        // Cambiar a la vista individual
+        this.showTab('individual');
+        
+        // Mostrar notificación visual
+        this.showNotification(`Mostrando dashboard de ${csr.name}`, 'success');
+    }
+    
+    showNotification(message, type = 'info') {
+        // Crear elemento de notificación
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg transition-all duration-300 transform translate-x-0 ${
+            type === 'success' ? 'bg-green-500 text-white' : 
+            type === 'error' ? 'bg-red-500 text-white' : 
+            'bg-blue-500 text-white'
+        }`;
+        notification.innerHTML = `
+            <div class="flex items-center gap-2">
+                <i class="fas ${
+                    type === 'success' ? 'fa-check-circle' : 
+                    type === 'error' ? 'fa-exclamation-circle' : 
+                    'fa-info-circle'
+                }"></i>
+                <span>${message}</span>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Remover después de 3 segundos
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 3000);
+    }
 
     showTab(tabId) {
         this.activeTab = tabId;
@@ -466,7 +529,9 @@ class CSRDashboardStatic {
             else if (csr.avgScore < 6) badges = '⚠️';
 
             return `
-                <div class="flex items-center gap-4 p-4 rounded-lg hover:bg-slate-50 transition-colors">
+                <div class="flex items-center gap-4 p-4 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer csr-ranking-item" 
+                     data-csr-id="${csr.id}" 
+                     title="Click para ver dashboard individual de ${csr.name}">
                     <div class="text-2xl font-bold text-slate-400 w-8">${idx + 1}</div>
                     <div class="avatar w-10 h-10" style="background-color: ${csr.color}">
                         ${csr.avatar}
@@ -486,9 +551,15 @@ class CSRDashboardStatic {
                         </div>
                     </div>
                     ${badges ? `<div class="text-2xl">${badges}</div>` : ''}
+                    <div class="text-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </div>
             `;
         }).join('');
+        
+        // Agregar event listeners para los clics en CSRs
+        this.attachCSRClickListeners();
     }
 
     loadIndividualView() {
