@@ -23,9 +23,16 @@ Dashboard interactivo para el análisis y evaluación de performance de Agentes 
 
 ## 🔗 Enlaces
 
-- **🌐 Demo en Vivo**: [Ver Dashboard](https://aizentek.github.io/Walcu-Agente-CSR/)
-- **📁 Repositorio**: [GitHub](https://github.com/AIzentek/Walcu-Agente-CSR)
-- **⚡ Versión Backend**: Disponible en el repositorio para deployment con Hono + Cloudflare
+### 🌐 **URLs Disponibles:**
+- **🎯 Principal**: [aizentek.github.io/Walcu-dashboard-Agente-CSR](https://aizentek.github.io/Walcu-dashboard-Agente-CSR/)
+- **🔄 Alternativa**: [aizentek.github.io/Walcu-Agente-CSR](https://aizentek.github.io/Walcu-Agente-CSR/) *(funciona por redirect)*
+
+### 📁 **Repositorios:**
+- **📊 Dashboard Principal**: [Walcu-dashboard-Agente-CSR](https://github.com/AIzentek/Walcu-dashboard-Agente-CSR)
+- **🔗 Redirect**: [Walcu-Agente-CSR](https://github.com/AIzentek/Walcu-Agente-CSR) *(redirige al principal)*
+
+### ⚡ **Backend:**
+- **Versión Completa**: Disponible en el repositorio para deployment con Hono + Cloudflare
 
 ## Funcionalidades Completadas
 
