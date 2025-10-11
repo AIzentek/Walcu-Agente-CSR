@@ -1,6 +1,6 @@
 # 📊 Dashboard Agente CSR
 
-> **🎯 URL Oficial:** https://aizentek.github.io/Walcu-Agente-CSR/  
+> **🎯 URL Oficial:** https://aizentek.github.io/Walcu-dashboard-Agente-CSR/
 > **📁 Repositorio:** https://github.com/AIzentek/Walcu-Agente-CSR
 
 ![Dashboard Preview](https://img.shields.io/badge/Status-Active-brightgreen)
